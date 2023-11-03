@@ -1,0 +1,21 @@
+.box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 272px;
+}
+
+.box:nth-child(2n) {
+    margin-left: 24px;
+}
+
+.count {
+    display: flex;
+}
+
+.text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
