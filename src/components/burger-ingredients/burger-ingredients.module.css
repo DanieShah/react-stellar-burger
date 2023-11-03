@@ -1,0 +1,13 @@
+.container {
+    max-width: 50%;
+}
+
+.scroll {
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
