@@ -1,14 +1,15 @@
 import React from "react";
+import { createPortal } from "react-dom";
 import Tabs from "../tabs/tabs";
 import style from "./burger-ingredients.module.css"
-import { data } from "../../utils/data";
 import Ingridient from "../ingridient/ingridient";
+import Modal from "../modal/modal";
 
-const bun = data.filter(el => el.type === "bun");
-const main = data.filter(el => el.type === "main");
-const sauce = data.filter(el => el.type === "sauce");
+function BurgerIngredients({data}) {
+    const bun = data.filter(el => el.type === "bun");
+    const main = data.filter(el => el.type === "main");
+    const sauce = data.filter(el => el.type === "sauce");
 
-function BurgerIngredients() {
     return (
         <div className={style.container}>
             <p className="text text_type_main-large mt-10 mb-5">
@@ -21,7 +22,7 @@ function BurgerIngredients() {
                </p>
                <div className={`${style.boxes} pt-6 pr-4`}>
                 {bun.map((elem) => {
-                    return <Ingridient image={elem.image} name={elem.name} price={elem.price} key={elem._id} />
+                    return <Ingridient arr={elem} key={elem._id} />
                    })
                 }
                </div>
@@ -30,7 +31,7 @@ function BurgerIngredients() {
                </p>
                <div className={`${style.boxes} pt-6 pr-4`}>
                 {sauce.map((elem) => {
-                    return <Ingridient image={elem.image} name={elem.name} price={elem.price} key={elem._id} />
+                    return <Ingridient arr={elem} key={elem._id} />
                    })
                 }
                </div>
@@ -39,7 +40,7 @@ function BurgerIngredients() {
                </p>
                <div className={`${style.boxes} pt-6 pr-4`}>
                 {main.map((elem) => {
-                    return <Ingridient image={elem.image} name={elem.name} price={elem.price} key={elem._id} />
+                    return <Ingridient arr={elem} key={elem._id} />
                    })
                 }
                </div>

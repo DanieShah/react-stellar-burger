@@ -2,7 +2,8 @@ import React from "react";
 import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 import styles from "./burger-list.module.css";
 import Filling from "../filling/fillng";
-
+import PropTypes from "prop-types";
+import { ingredientPropType } from "../../utils/prop-types";
 
 
 const BurgerList = ({bun, filling}) => {
@@ -33,6 +34,11 @@ const BurgerList = ({bun, filling}) => {
         />
       </div>
     )
+  }
+
+  BurgerList.propTypes = {
+    bun: ingredientPropType,
+    filling: PropTypes.array
   }
 
   export default BurgerList;

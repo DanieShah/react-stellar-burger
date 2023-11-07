@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     max-width: 272px;
+    cursor: pointer;
 }
 
 .box:nth-child(2n) {
