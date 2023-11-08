@@ -3,6 +3,8 @@ import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-comp
 import BurgerList from "../burger-list/burger-list";
 import styles from "./burger-constructor.module.css";
 import Payment from "../payment/payment";
+import { ingredientPropType } from "../../utils/prop-types";
+import PropTypes from "prop-types";
 
 const BurgerConstructor = ({data}) => {
     const bun = data.find((el) => el.type === "bun");
@@ -17,5 +19,9 @@ const BurgerConstructor = ({data}) => {
         </div>
         );
 };
+
+BurgerConstructor.propTypes = {
+    data: PropTypes.arrayOf(ingredientPropType).isRequired
+}
 
 export default BurgerConstructor;

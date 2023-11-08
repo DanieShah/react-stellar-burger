@@ -13,13 +13,6 @@ import ModalOverlay from "../modaloverlay/modaloverlay";
 import IngredientDetails from "../ingredient-details/ingredient-details";
 
 function Ingridient({ arr, count }) {
-    const root = document.getElementById('box');
-    const MyPortalModal = () => createPortal(
-        <>
-           <Modal buttonFunc={openModal} content={<IngredientDetails arr={arr} />} />
-           <ModalOverlay />
-        </>
-        , root);
     const [shouldShowModal, setShouldShowModal] = useState(false);
 
     const openModal = () => {
@@ -29,7 +22,7 @@ function Ingridient({ arr, count }) {
 
     return(
         <>
-           {shouldShowModal && <MyPortalModal />}
+           {shouldShowModal && <Modal buttonFunc={openModal} content={<IngredientDetails arr={arr} />} />}
            <li className={style.box} onClick={openModal}>
                {count && <Counter count={1} size="default" extraClass="m-1" />}
                <img className="mt-1 ml-4 mr-4 mb-1" src={arr.image} alt={arr.name} />

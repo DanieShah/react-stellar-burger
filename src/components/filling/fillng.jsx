@@ -2,7 +2,9 @@ import React from "react";
 import { ConstructorElement,
     DragIcon, 
 } from "@ya.praktikum/react-developer-burger-ui-components";
-import styles from "./fillng.module.css"
+import styles from "./fillng.module.css";
+import { ingredientPropType } from "../../utils/prop-types";
+import PropTypes from "prop-types"
 
 
 const Filling = ({arr}) => {
@@ -17,6 +19,10 @@ return(
         /> 
     </div>
 )
+}
+
+Filling.propTypes = {
+    arr: ingredientPropType.isRequired
 }
 
 export default Filling;

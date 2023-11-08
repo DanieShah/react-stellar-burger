@@ -2,9 +2,11 @@ import {React, useState, useEffect} from "react";
 import { createPortal } from "react-dom";
 import styles from './modal.module.css';
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
-// import { ingredientPropType } from "../../utils/prop-types";
+import ModalOverlay from "../modaloverlay/modaloverlay";
+import PropType from "prop-types";
 
 const Modal = ({content, buttonFunc}) => {
+    const root = document.getElementById('box');
 
     const closeModalEsc = (evt) => {
         if (evt.key === "Escape") {
@@ -29,16 +31,38 @@ const Modal = ({content, buttonFunc}) => {
         }
     }, [])
 
+    const MyPortalModal = () => {
+        createPortal(
+            <>
+            <div className={styles.box}>
+                <button className={styles.close} onClick={buttonFunc}>
+                   <CloseIcon type="primary" />
+                </button>
+                {content}
+            </div>
+            <ModalOverlay />
+            </> 
+        , root)
+    }
+
     return (
-        <div className={styles.box}>
-            <button className={styles.close} onClick={buttonFunc}>
-               <CloseIcon type="primary" />
-            </button>
-            {content}
-        </div>
+        createPortal(
+            <>
+            <div className={styles.box}>
+                <button className={styles.close} onClick={buttonFunc}>
+                   <CloseIcon type="primary" />
+                </button>
+                {content}
+            </div>
+            <ModalOverlay />
+            </> 
+        , root)
     )
 }
 
-// Modal.PropType = ingredientPropType
+Modal.propTypes = {
+    content: PropType.node.isRequired,
+    buttonFunc: PropType.func.isRequired
+}
 
 export default Modal;

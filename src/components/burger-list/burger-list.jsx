@@ -38,7 +38,7 @@ const BurgerList = ({bun, filling}) => {
 
   BurgerList.propTypes = {
     bun: ingredientPropType,
-    filling: PropTypes.array
+    filling: PropTypes.arrayOf(ingredientPropType)
   }
 
   export default BurgerList;

@@ -14,12 +14,14 @@ function App() {
 
   const url = 'https://norma.nomoreparties.space/api/ingredients';
 
+  const checkReponse = (res) => {
+    return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+  }; 
+
   React.useEffect(() => {
     const getApiUrl = async () => {
-      setUrlApi({...urlApi})
-      const res = await fetch(url);
-      const el = await res.json();
-      setUrlApi({...urlApi, data: el.data, success: true})
+      setUrlApi({...urlApi});
+      const res = fetch(url).then(checkReponse).then((el) => setUrlApi({...urlApi, data: el.data, success: true}));
     };
 
     getApiUrl();

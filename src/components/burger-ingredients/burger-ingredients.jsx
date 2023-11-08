@@ -4,6 +4,8 @@ import Tabs from "../tabs/tabs";
 import style from "./burger-ingredients.module.css"
 import Ingridient from "../ingridient/ingridient";
 import Modal from "../modal/modal";
+import PropTypes from "prop-types";
+import { ingredientPropType } from "../../utils/prop-types";
 
 function BurgerIngredients({data}) {
     const bun = data.filter(el => el.type === "bun");
@@ -48,5 +50,9 @@ function BurgerIngredients({data}) {
         </div>
     );
 };
+
+BurgerIngredients.propTypes = {
+    data: PropTypes.arrayOf(ingredientPropType)
+}
 
 export default BurgerIngredients;

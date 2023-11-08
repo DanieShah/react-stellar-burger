@@ -10,13 +10,6 @@ import ModalOverlay from "../modaloverlay/modaloverlay";
 import OrderDetails from "../orderdetails/orderdetails";
 
 const Payment = () => {
-    const root = document.getElementById('box');
-    const MyPortalModal = () => createPortal(
-        <>
-           <Modal content={<OrderDetails />} buttonFunc={openModal} />
-           <ModalOverlay />
-        </>
-        , root);
     const [shouldShowModal, setShouldShowModal] = useState(false);
 
     const openModal = () => {
@@ -25,7 +18,7 @@ const Payment = () => {
 
     return(
         <div className={styles.box}>
-            {shouldShowModal && <MyPortalModal />}
+            {shouldShowModal && <Modal content={<OrderDetails />} buttonFunc={openModal} />}
             <div className={styles.price}>
                 <p className="text text_type_digits-medium mr-2">610</p>
                 <CurrencyIcon type="primary" />
