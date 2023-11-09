@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    max-height: 56px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button_container {
+    display: flex;
+}
+
+.button {
+    display: flex;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    border: none;
+    background-color: transparent;
+}

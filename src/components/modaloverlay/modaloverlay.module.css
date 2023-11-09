@@ -1,0 +1,8 @@
+.box {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .6;
+    position: absolute;
+    left: 0;
+}

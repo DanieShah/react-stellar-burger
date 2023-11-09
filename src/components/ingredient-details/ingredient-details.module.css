@@ -1,0 +1,12 @@
+.img {
+    width: 420px;
+    height: 240px;
+}
+
+.characteristics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 8px;
+    column-gap: 20px;
+}
