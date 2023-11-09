@@ -29,21 +29,7 @@ const Modal = ({content, buttonFunc}) => {
             document.removeEventListener('keydown', closeModalEsc);
             document.removeEventListener('click', closeModalMouse);
         }
-    }, [])
-
-    const MyPortalModal = () => {
-        createPortal(
-            <>
-            <div className={styles.box}>
-                <button className={styles.close} onClick={buttonFunc}>
-                   <CloseIcon type="primary" />
-                </button>
-                {content}
-            </div>
-            <ModalOverlay />
-            </> 
-        , root)
-    }
+    }, []);
 
     return (
         createPortal(
